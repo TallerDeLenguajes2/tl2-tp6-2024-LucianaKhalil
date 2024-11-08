@@ -1,0 +1,12 @@
+@model List<Productos>
+<nav>
+    <ul>
+        @foreach (var p in Model)
+        {
+            <li>
+                <p>Id: @p.IdProducto</p>
+                <p>Descripción: @p.Descripcion</p>
+                <p>Precio: @p.Precio</p>
+            </li>
+        }
+    </ul>
