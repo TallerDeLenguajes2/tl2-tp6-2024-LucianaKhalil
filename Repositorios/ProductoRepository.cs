@@ -88,36 +88,32 @@ public class ProductoRepositorio : IproductoRepository{
         }
     
     public void Update(Productos producto, int id){
-        var query =$"UPDATE Productos SET Descripcion = '{producto.Descripcion}', Precio = '{producto.Precio}' WHERE idProducto = '{producto.IdProducto}'";
+        var query = "UPDATE Productos SET Descripcion = @Descripcion, Precio = @Precio WHERE idProducto = @IdProducto";
             using (SQLiteConnection connection = new SQLiteConnection(cadenaConexion))
             {
 
                 connection.Open();
                 var command = new SQLiteCommand(query, connection);
-
+                command.Parameters.Add(new SQLiteParameter("@IdProducto", producto.IdProducto));
                 command.Parameters.Add(new SQLiteParameter("@Descripcion", producto.Descripcion));
                 command.Parameters.Add(new SQLiteParameter("@Precio", producto.Precio));
-
+                
                 command.ExecuteNonQuery();
 
                 connection.Close();   
             }
     }
     public void Delete(int id){
-         var query = "DELETE FROM Productos WHERE idProducto = @idProducto"; // Usar parámetro seguro
+         var query = "DELETE FROM Productos WHERE idProducto = @IdProducto"; 
             using (SQLiteConnection connection = new SQLiteConnection(cadenaConexion))
             {
 
                 connection.Open();
                 var command = new SQLiteCommand(query, connection);
 
-                command.Parameters.Add(new SQLiteParameter("@idProducto", id));
+                command.Parameters.Add(new SQLiteParameter("@IdProducto", id));
                 command.ExecuteNonQuery();
                 connection.Close();   
             }
     }
-
-    
-
-
 }

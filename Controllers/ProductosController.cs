@@ -2,74 +2,65 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using tl2_tp6_2024_LucianaKhalil.Models;
 
-namespace tl2_tp6_2024_LucianaKhalil.Controllers;
-
-public class ProductosController : Controller
+namespace tl2_tp6_2024_LucianaKhalil.Controllers
 {
-    private readonly ILogger<HomeController> _logger;
-    private static List<Productos> productos = new List<Productos>();
-     
-    public ProductosController(ILogger<HomeController> logger)
+    public class ProductosController : Controller
     {
-        _logger = logger;
+        private readonly ProductoRepositorio _productoRepositorio;
+
+        //necesito obtener de repositorio productos
+        public ProductosController()
+        {
+            _productoRepositorio = new ProductoRepositorio(@"Data Source=db\Tienda.db;Cache=Shared");
+        }
+
+        [HttpGet]
+        public IActionResult CrearProducto()
+        {   
+            return View(new Productos());
+        }
+
+        [HttpPost]
+        public IActionResult CrearProducto(Productos producto)
+        {   
+            _productoRepositorio.Create(producto);
+            return RedirectToAction("ListarProductos"); // Redirige a ListarProductos 
+        }
+
+        [HttpGet]
+        public IActionResult EditarProducto(int idProducto)
+        {  
+            var producto = _productoRepositorio.GetById(idProducto);
+            return View(producto);
+        }
+
+        [HttpPost]
+        public IActionResult EditarProducto(Productos producto)
+        {   
+            _productoRepositorio.Update(producto, producto.IdProducto);
+            return RedirectToAction("ListarProductos");
+        }
+
+
+        [HttpGet]
+        public IActionResult ListarProductos()
+        {
+            // Obtiene todos los productos del repositorio
+            var productos = _productoRepositorio.getAll();
+            return View(productos); // Pasa la lista de productos a la vista
+        }
+
+        public IActionResult EliminarProducto(int idProducto)
+        {  
+            // Elimina el producto usando el repositorio
+            _productoRepositorio.Delete(idProducto);
+            return RedirectToAction("ListarProductos"); // Redirige a ListarProductos 
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
-
-    public IActionResult Index()
-    {
-        var indexProductoViewModel = new IndexProductoViewModel(productos);
-        return View(indexProductoViewModel);
-    }
-
-    [HttpGet]
-    public IActionResult CrearProducto()
-    {   
-        return View(new Productos());
-    }
-
-
-    [HttpPost]
-    public IActionResult CrearProducto(Productos producto)
-    {   
-        producto.IdProducto = productos.Count()+1;
-        productos.Add(producto);
-        return RedirectToAction("Index");
-    }
-
-    [HttpGet]
-    public IActionResult EditarProducto(int idProducto)
-    {  
-        return View( productos.FirstOrDefault( producto => producto.IdProducto ==idProducto));
-    }
-
-     [HttpGet]
-    public IActionResult ListarProductos()
-    {
-        return View(productos); // Pasas la lista de productos a la vista
-    }
-
-    [HttpPost]
-    public IActionResult EditarProducto(Productos producto)
-    {   
-        
-        var producto2 = productos.FirstOrDefault( producto => producto.IdProducto == producto.IdProducto);
-        producto2.Descripcion=producto.Descripcion;
-        producto2.Precio = producto.Precio;
-
-        return RedirectToAction("Index");
-    }
-
-    
-    public IActionResult DeleteProducto(int idProducto)
-    {  
-       var productoBuscado = productos.FirstOrDefault( producto => producto.IdProducto == idProducto);
-       productos.Remove(productoBuscado);
-      return RedirectToAction("Index");
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
-
 }
