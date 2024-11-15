@@ -49,8 +49,8 @@ namespace tl2_tp6_2024_LucianaKhalil.Controllers
             var productos = _productoRepositorio.getAll();
             return View(productos); // Pasa la lista de productos a la vista
         }
-
-        public IActionResult EliminarProducto(int idProducto)
+    
+        public IActionResult DeleteProducto(int idProducto)
         {  
             // Elimina el producto usando el repositorio
             _productoRepositorio.Delete(idProducto);

@@ -71,15 +71,15 @@ public class PresupuestoRepositorio : IPresupuestosRepository{
 
     public void Create(Presupuesto presupuesto)
     {
-        var query = @"INSERT INTO Presupuestos (idPresupuesto, nombreDestinatario, FechaCreacion) 
-                    VALUES (@idPresupuesto, @nombreDestinatario, @FechaCreacion)";
+        var query = @"INSERT INTO Presupuestos (idPresupuesto, NombreDestinatario, FechaCreacion) 
+                    VALUES (@idPresupuesto, @NombreDestinatario, @FechaCreacion)";
         using (SQLiteConnection connection = new SQLiteConnection(cadenaConexion))
         {
             connection.Open();
             var command = new SQLiteCommand(query, connection);
 
             command.Parameters.Add(new SQLiteParameter("@idPresupuesto", presupuesto.IdPresupuesto));
-            command.Parameters.Add(new SQLiteParameter("@nombreDestinatario", presupuesto.NombreDestinatario));
+            command.Parameters.Add(new SQLiteParameter("@NombreDestinatario", presupuesto.NombreDestinatario));
             command.Parameters.Add(new SQLiteParameter("@FechaCreacion", DateTime.Now));
 
             command.ExecuteNonQuery();

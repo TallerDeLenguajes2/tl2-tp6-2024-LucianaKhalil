@@ -16,7 +16,8 @@ public class Presupuesto{
         this.IdPresupuesto = idPresupuesto;
         this.NombreDestinatario = nombreDestinatario;
     }
-
+    public Presupuesto(){//constructor por defecto
+    }
     /* agregar IVA MontoPresupuesto ()
 ■ MontoPresupuestoConIva()
 ■ CantidadProductos ()*/
