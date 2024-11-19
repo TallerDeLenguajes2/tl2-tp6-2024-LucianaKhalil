@@ -1,0 +1,26 @@
+@model Presupuesto
+
+<form class="row g-3" asp-controller="Presupuesto" asp-action="AgregarProducto" method="post">
+    <p>Id del Presupuesto en la vista: @Model.IdPresupuesto</p>
+    
+    <!-- Campo oculto para el idPresupuesto -->
+    <input type="hidden" name="idPresupuesto" value="@Model.IdPresupuesto" />
+    
+    <div class="col-md-3">
+        <label for="idProducto" class="form-label">Producto</label>
+        <select name="idProducto" id="idProducto" class="form-control">
+            <!-- Aquí recorremos los productos y los mostramos como opciones -->
+            @foreach (var producto in ViewData["Productos"] as List<Productos>)
+            {
+                <option value="@producto.IdProducto">@producto.Descripcion</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label for="cantidad" class="form-label">Cantidad</label>
+        <input type="number" name="cantidad" id="cantidad" class="form-control" min="1" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Agregar Producto</button>
+</form>

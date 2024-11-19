@@ -14,6 +14,8 @@ public interface IproductoRepository{
 
     void Update(Productos producto, int id);
     void Delete(int id);
+
+
 }
 
 public class ProductoRepositorio : IproductoRepository{
@@ -116,4 +118,5 @@ public class ProductoRepositorio : IproductoRepository{
                 connection.Close();   
             }
     }
+    
 }

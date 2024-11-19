@@ -8,7 +8,7 @@
                 <p>Descripción: @p.Descripcion</p>
                 <p>Precio: @p.Precio</p>
                 <a asp-controller="Productos" asp-action="EditarProducto" asp-route-idProducto="@p.IdProducto" class="btn btn-primary">Editar</a>
-                <a asp-controller="Productos" asp-action="EliminarProducto" asp-route-idProducto="@p.IdProducto" class="btn btn-primary">Eliminar</a>
+                <a asp-controller="Productos" asp-action="DeleteProducto" asp-route-idProducto="@p.IdProducto" class="btn btn-primary">Eliminar</a>
             </li>
         }
 </ul>

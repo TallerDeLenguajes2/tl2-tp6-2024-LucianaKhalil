@@ -1,0 +1,15 @@
+@model Presupuesto
+
+<form asp-controller="Presupuesto" asp-action="EditarPresupuesto">
+    <input type="hidden" asp-for="IdPresupuesto" />
+    <div class="form-group">
+        <label type="text" asp-for="@Model.NombreDestinatario">Nombre destinatario</label>
+        <input asp-for="@Model.NombreDestinatario" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.FechaCreacion">Fecha creacion</label>
+        <input type="date" asp-for="@Model.FechaCreacion" class="form-control" />
+    </div>
+    <button type="submit">Enviar</button>
+</form>

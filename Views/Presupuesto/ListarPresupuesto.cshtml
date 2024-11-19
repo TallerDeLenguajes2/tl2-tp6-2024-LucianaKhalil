@@ -1,0 +1,51 @@
+@model List<Presupuesto>
+
+<h2>Lista de Presupuestos</h2>
+
+<ul>
+    @foreach (var presupuesto in Model)
+    {
+        <li>
+            <p>Id Presupuesto: @presupuesto.IdPresupuesto</p>
+            <p>Nombre destinatario: @presupuesto.NombreDestinatario</p>
+            <p>Fecha de creacion: @presupuesto.FechaCreacion.ToString("dd-MM-yyyy")</p>
+
+            <!-- Mostrar los detalles del presupuesto (productos asociados) -->
+            <h4>Detalles del presupuesto:</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var detalle in presupuesto.Detalle)
+                {
+                    <tr>
+                        <td>@detalle.Producto.Descripcion</td>
+                        <td>@detalle.Cantidad</td>
+                        <td>@detalle.Producto.Precio.ToString("C")</td>
+                        <td>@((detalle.Cantidad * detalle.Producto.Precio).ToString("C"))</td>
+                    </tr>
+                }
+
+                    @if (presupuesto.Detalle.Count == 0)
+                    {
+                        <tr>
+                            <td colspan="4">No hay productos asignados a este presupuesto.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <!-- Enlace para agregar productos al presupuesto -->
+            <a asp-action="AgregarProducto" asp-route-idPresupuesto="@presupuesto.IdPresupuesto" class="btn btn-success">Agregar Producto</a>
+            <br />
+            <a asp-action="EditarPresupuesto" asp-route-idPresupuesto="@presupuesto.IdPresupuesto" class="btn btn-primary">Editar</a>
+            <a asp-action="EliminarPresupuesto" asp-route-idPresupuesto="@presupuesto.IdPresupuesto" class="btn btn-danger">Eliminar</a>
+        </li>
+    }
+</ul>

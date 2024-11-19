@@ -26,6 +26,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Presupuesto/AgregarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cQWdyZWdhclByb2R1Y3RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Presupuesto/CrearPresupuesto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cQ3JlYXJQcmVzdXB1ZXN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Presupuesto/EditarPresupuesto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRWRpdGFyUHJlc3VwdWVzdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Presupuesto/EliminarPresupuesto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRWxpbWluYXJQcmVzdXB1ZXN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Presupuesto/ListarPresupuesto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cTGlzdGFyUHJlc3VwdWVzdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,12 +50,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXENyZWFyUHJvZHVjdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Productos/EditarProducto.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVkaXRhclByb2R1Y3RvLmNzaHRtbA==
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Productos/DeleteProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERlbGV0ZVByb2R1Y3RvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Productos/EliminarProducto.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVsaW1pbmFyUHJvZHVjdG8uY3NodG1s
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Productos/EditarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVkaXRhclByb2R1Y3RvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Productos/ListarProductos.cshtml]

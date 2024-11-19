@@ -1,0 +1,15 @@
+@model Presupuesto
+
+<form asp-controller="Presupuesto" asp-action="DeletePresupuesto">
+    <input type="hidden" name="IdPresupuesto" asp-for="IdPresupuesto" />
+    <div class="form-group">
+        <label asp-for="@Model.NombreDestinatario"></label>
+        <input asp-for="@Model.NombreDestinatario" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.FechaCreacion"></label>
+        <input asp-for="@Model.FechaCreacion" class="form-control" />
+    </div>
+    <button type="submit">Eliminar</button>
+</form>
