@@ -1,8 +1,15 @@
---Alta producto
+-- Tabla Clientes
+CREATE TABLE Clientes(
+    ClienteId INTEGER PRIMARY KEY,
+    Nombre TEXT NOT NULL,
+    Email TEXT NOT NULL,
+    Telefono TEXT NOT NULL
+);
+-- Alta producto
 INSERT INTO Productos (Descripcion, Precio) 
 VALUES ('Mouse Inalámbrico Logitech', 5000);
 
---Alta presupuesto
+-- Alta presupuesto
 INSERT INTO Presupuestos (NombreDestinatario, FechaCreacion) 
 VALUES ('Carlos Ruiz', '2024-10-25');
 
@@ -52,3 +59,17 @@ FROM
 DELETE FROM PresupuestosDetalle
 WHERE idPresupuesto = [idPresupuesto] AND idProducto = [idProducto];
 
+-- Elimina el campo NombreDestinatario
+ALTER TABLE Presupuestos
+DROP COLUMN NombreDestinatario;
+
+-- Agrega el campo ClienteId como clave externa
+ALTER TABLE Presupuestos
+ADD COLUMN ClienteId INTEGER NOT NULL;
+
+-- Crea la relación con la tabla Clientes
+PRAGMA foreign_keys = ON; -- Asegúrate de que las claves foráneas están activadas
+
+ALTER TABLE Presupuestos
+ADD CONSTRAINT FK_Cliente
+FOREIGN KEY (ClienteId) REFERENCES Clientes(ClienteId);

@@ -1,7 +1,7 @@
 
 public class Presupuesto{
     private int idPresupuesto;
-    private string nombreDestinatario;
+    private Cliente cliente;
 
     private DateTime fechaCreacion;
     private List<PresupuestoDetalle> detalle = new List<PresupuestoDetalle>();//inicializo la lista
@@ -10,15 +10,16 @@ public class Presupuesto{
     
     //-------------------------
     public int IdPresupuesto { get => idPresupuesto; set => idPresupuesto = value; }
-    public string NombreDestinatario { get => nombreDestinatario; set => nombreDestinatario = value; }
+
 
     public DateTime FechaCreacion { get => fechaCreacion; set => fechaCreacion = value; }
     public List<PresupuestoDetalle> Detalle { get => detalle; set => detalle = value; }
+    public Cliente Cliente { get => cliente; set => cliente = value; }
 
     //constructor presupuesto
-    public Presupuesto(int idPresupuesto, string nombreDestinatario){
+    public Presupuesto(int idPresupuesto, Cliente cliente){
         this.IdPresupuesto = idPresupuesto;
-        this.NombreDestinatario = nombreDestinatario;
+        this.Cliente = cliente;
         this.FechaCreacion = DateTime.Now;
     }
     public Presupuesto(){//constructor por defecto
