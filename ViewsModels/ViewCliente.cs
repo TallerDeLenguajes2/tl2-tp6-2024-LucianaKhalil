@@ -14,7 +14,7 @@ public class ViewCliente
     [EmailAddress(ErrorMessage = "Debe ser un email válido.")]
     public string Email { get; set; }
 
-    public int IdCliente { get; set; }
+    public int ClienteId { get; set; }
 
     //constructor
     public ViewCliente(Cliente c)
@@ -22,7 +22,7 @@ public class ViewCliente
         Nombre = c.Nombre;
         Telefono = c.Telefono;
         Email = c.Email;
-        IdCliente = c.ClienteId;
+        ClienteId = c.ClienteId;
     }
     
     public ViewCliente()

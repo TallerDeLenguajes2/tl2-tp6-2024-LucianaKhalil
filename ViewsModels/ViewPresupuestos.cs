@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 public class ViewAltaPresupuesto
 {
 
-    public int idCliente { get; set; }
+    public int ClienteId { get; set; }
     
     public DateTime Fecha { get; set; }
     public List<Cliente> clientes { get; set; }
@@ -15,10 +15,8 @@ public class ViewAltaPresupuesto
 }
 public class viewAgregarProductoAlPresupuesto
 {
-
-
-    public int idPre { get; set; }
-    public int idPro { get; set; }
+    public int IdPresupuesto { get; set; }
+    public int IdProducto { get; set; }
 
     public List<Productos> productos { get; set; }
     public int cantidad { get; set; }

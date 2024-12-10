@@ -18,6 +18,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Usuario\OneDrive\Documentos\2024\Taller2\tl2-tp6-2024-LucianaKhalil
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Cliente/CrearCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDcmVhckNsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Cliente/DeleteCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxEZWxldGVDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Cliente/EditarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0YXJDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Cliente/ListarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMaXN0YXJDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -56,10 +72,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Productos/EditarProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVkaXRhclByb2R1Y3RvLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Productos/EliminarProducto.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVsaW1pbmFyUHJvZHVjdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Usuario/OneDrive/Documentos/2024/Taller2/tl2-tp6-2024-LucianaKhalil/Views/Productos/ListarProductos.cshtml]

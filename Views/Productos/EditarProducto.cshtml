@@ -1,4 +1,4 @@
-@model Productos
+@model ViewProductos
 
 <form asp-controller="Productos" asp-action="EditarProducto">
     <input type="hidden" asp-for="IdProducto" />
@@ -13,3 +13,4 @@
     </div>
     <button type="submit">Enviar</button>
 </form>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

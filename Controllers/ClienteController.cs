@@ -10,54 +10,67 @@ public class ClienteController : Controller
     }
 
     [HttpGet]
-    public IActionResult ListarClientes()
+    public IActionResult ListarCliente()
     {
-        var clientes = _clienteRepositorio.getAll;
+        var clientes = _clienteRepositorio.getAll();
         return View(clientes);
     }
 
     [HttpGet]
     public IActionResult CrearCliente()
     {
-        return View(new Cliente());
+        return View(new ViewCliente());
     }
 
     [HttpPost]
-    public IActionResult CrearCliente(Cliente cliente)
+    public IActionResult CrearCliente(ViewCliente cliente)
     {
         if (ModelState.IsValid)
         {
-            _clienteRepositorio.Create(cliente);
-            return RedirectToAction("ListarClientes");
+            var c = new Cliente(cliente);
+            _clienteRepositorio.Create(c);
+            return RedirectToAction("ListarCliente");
         }
 
-        return View(cliente);
+        return View(new ViewCliente());
     }
 
     [HttpGet]
     public IActionResult EditarCliente(int id)
     {
         var cliente = _clienteRepositorio.GetById(id);
-        return View(cliente);
+        ViewCliente model = new ViewCliente(cliente);
+        return View(model);
     }
 
     [HttpPost]
-    public IActionResult EditarCliente(Cliente cliente)
+    public IActionResult EditarClientePost(int id, ViewCliente clienteVM)
     {
         if (ModelState.IsValid)
-        {
-            _clienteRepositorio.Update(cliente);
-            return RedirectToAction("ListarClientes");
+        {   
+            var c = new Cliente(clienteVM);
+            _clienteRepositorio.Update(c);
+            return RedirectToAction("ListarCliente");
         }
 
-        return View(cliente);
+        return View(new ViewCliente());
     }
 
+    [HttpGet]//aca no uso vm
+    public IActionResult DeleteCliente(int id)
+    {
+        var eliminado = _clienteRepositorio.GetById(id);
+        if (eliminado == null)
+        {
+            return RedirectToAction("ListarCliente", new { error = "Cliente no encontrado" });
+        }
+        return View(eliminado);
+    }
     [HttpPost]
-    public IActionResult EliminarCliente(int id)
+    public IActionResult EliminarClientePost(int id)
     {
         _clienteRepositorio.Delete(id);
-        return RedirectToAction("ListarClientes");
+        return RedirectToAction("ListarCliente");
     }
 }
 }

@@ -17,14 +17,36 @@ public class Presupuesto{
     public Cliente Cliente { get => cliente; set => cliente = value; }
 
     //constructor presupuesto
+    
+    public Presupuesto(int idPresupuesto , Cliente cliente , List<PresupuestoDetalle> detalles , DateTime FechaCreacion )
+    {
+        this.idPresupuesto = idPresupuesto ; 
+        this.cliente = cliente ; 
+        this.detalle = detalles;
+        this.FechaCreacion = FechaCreacion ;
+    }
     public Presupuesto(int idPresupuesto, Cliente cliente){
         this.IdPresupuesto = idPresupuesto;
         this.Cliente = cliente;
         this.FechaCreacion = DateTime.Now;
     }
-    public Presupuesto(){//constructor por defecto
+     public Presupuesto()
+    {
+        detalle = new List<PresupuestoDetalle>();
+        cliente = new Cliente();
     }
-    /* agregar IVA MontoPresupuesto ()
+
+    //crear constructor viewmodel
+    public Presupuesto(ViewAltaPresupuesto viewAltaPresupuestoVm){
+        cliente = new Cliente();
+        cliente.ClienteId = viewAltaPresupuestoVm.ClienteId;
+        FechaCreacion = viewAltaPresupuestoVm.Fecha ;
+    }
+    
+
+
+
+/* agregar IVA MontoPresupuesto ()
 ■ MontoPresupuestoConIva()
 ■ CantidadProductos ()*/
 //monto sin IVA
@@ -38,7 +60,7 @@ public class Presupuesto{
     public double MontoPresupuestoConIva(){
         double montoIva=0;
         foreach(var presupuesto in Detalle){
-            montoIva+=((presupuesto.Producto.Precio)*1.21)*presupuesto.Cantidad;
+            montoIva+=(presupuesto.Producto.Precio)*1.21*presupuesto.Cantidad;
         }
          return montoIva;
         }

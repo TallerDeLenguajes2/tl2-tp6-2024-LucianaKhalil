@@ -23,7 +23,7 @@ public class ClienteRepositorio : IClienteRepository{
         cadenaConexion = CadenaConexion;
     }
       public List<Cliente> getAll()
-{
+    {
     var queryString = @"SELECT * FROM Clientes;";
     List<Cliente> clientes = new List<Cliente>();
     using (SQLiteConnection connection = new SQLiteConnection(cadenaConexion))
@@ -96,23 +96,26 @@ public class ClienteRepositorio : IClienteRepository{
 
     
 
-    public void Update(Cliente cliente){
-        var query ="UPDATE Clientes SET Nombre = @nombre, Email= @email, Telefono=@tel WHERE ClienteId = @id;";
-            using (SQLiteConnection connection = new SQLiteConnection(cadenaConexion))
-            {
+    public void Update(Cliente cliente)
+    {
+    var query = "UPDATE Clientes SET Nombre = @nombre, Email = @email, Telefono = @tel WHERE ClienteId = @id;";
+    using (SQLiteConnection connection = new SQLiteConnection(cadenaConexion))
+    {
+        connection.Open();
+        var command = new SQLiteCommand(query, connection);
 
-                connection.Open();
-                var command = new SQLiteCommand(query, connection);
+        // Asigna todos los parámetros necesarios al comando
+        command.Parameters.Add(new SQLiteParameter("@nombre", cliente.Nombre));
+        command.Parameters.Add(new SQLiteParameter("@email", cliente.Email));
+        command.Parameters.Add(new SQLiteParameter("@tel", cliente.Telefono));
+        command.Parameters.Add(new SQLiteParameter("@id", cliente.ClienteId));
 
-                command.Parameters.Add(new SQLiteParameter("@nombre", cliente.Nombre));
-                command.Parameters.Add(new SQLiteParameter("@email", cliente.Email));
-                command.Parameters.Add(new SQLiteParameter("@tel", cliente.Telefono));
-                
-                command.ExecuteNonQuery();
+        command.ExecuteNonQuery();
 
-                connection.Close();   
-            }
+        connection.Close();
     }
+    }
+
     public void Delete(int id){
         var query = "DELETE FROM Clientes WHERE ClienteId = @id";
 

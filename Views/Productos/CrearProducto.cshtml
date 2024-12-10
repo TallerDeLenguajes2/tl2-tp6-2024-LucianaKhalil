@@ -1,4 +1,4 @@
-@model Productos
+@model ViewProductos
 
 <form asp-controller="Productos" asp-action="CrearProducto">
     <div class="form-group">
@@ -12,3 +12,5 @@
 
     <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> } 

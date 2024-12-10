@@ -1,9 +1,22 @@
-@model Presupuesto
+@model ViewAltaPresupuesto
 
-<form asp-controller="Presupuesto" asp-action="CrearPresupuesto">
+<form asp-controller="Presupuesto" asp-action="CrearPresupuesto" method="post">
     <div class="form-group">
-        <label asp-for="@Model.Cliente"></label>
-        <input asp-for="@Model.Cliente" class="form-control" />
+        <label for="ClienteId" class="form-label">Cliente</label>
+        <select asp-for="ClienteId" class="form-control" required>
+            <option value="">Seleccione un cliente</option>
+            @foreach (var cliente in Model.clientes)
+            {
+                <option value="@cliente.ClienteId">@cliente.Nombre</option>
+            }
+        </select>
+        <span asp-validation-for="ClienteId" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label for="Fecha" class="form-label">Fecha</label>
+        <input asp-for="Fecha" type="date" class="form-control" required />
+        <span asp-validation-for="Fecha" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Enviar</button>
