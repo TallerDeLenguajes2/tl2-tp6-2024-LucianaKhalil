@@ -42,7 +42,14 @@ public class Presupuesto{
         cliente.ClienteId = viewAltaPresupuestoVm.ClienteId;
         FechaCreacion = viewAltaPresupuestoVm.Fecha ;
     }
-    
+    //constructor para modificar
+     public Presupuesto(ViewEditarPresupuesto presupuestoVM)
+    {
+        idPresupuesto = presupuestoVM.IdPresupuesto;
+        cliente = new Cliente();
+        cliente.ClienteId = presupuestoVM.ClienteId;
+        fechaCreacion = presupuestoVM.Fecha;
+    }
 
 
 

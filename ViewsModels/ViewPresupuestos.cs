@@ -26,3 +26,14 @@ public class viewAgregarProductoAlPresupuesto
         productos = new List<Productos>() ;
     }
 }
+
+public class ViewEditarPresupuesto
+{
+    public int IdPresupuesto { get; set; } // ID del presupuesto
+    public int ClienteId { get; set; } // ID del cliente
+    public DateTime Fecha { get; set; } // Fecha de creación del presupuesto
+     public ViewEditarPresupuesto()
+    {
+
+    }
+}

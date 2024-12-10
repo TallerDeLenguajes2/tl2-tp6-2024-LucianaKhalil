@@ -1,22 +1,35 @@
-@model ViewAltaPresupuesto
+@model ViewEditarPresupuesto
 
-<form asp-controller="Presupuesto" asp-action="EditarPresupuestoPost">
-    <input type="hidden" asp-for="ClienteId" />
-    <div class="form-group">
-        <label type="text" asp-for="@Model.ClienteId">Nombre del cliente</label>
-        <select name="ClienteId" class="form-control" required>
-                        <option value="">Seleccione un cliente para asignar presupuesto</option>
-                        @foreach (var cliente in Model.clientes)
-                        {
-                            <option value="@cliente.ClienteId">@cliente.Nombre</option>
-                        }
-                    </select>
-                    <span asp-validation-for="ClienteId" class="text-danger"></span>
+<h2>Editar Presupuesto</h2>
+
+<form asp-controller="Presupuesto" asp-action="EditarPresupuestoPost" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label for="ClienteId" class="form-label">Cliente</label>
+        <select asp-for="ClienteId" class="form-control" required>
+            <option value="">Seleccione un cliente para asignar presupuesto</option>
+            @foreach (var cliente in ViewData["Clientes"] as List<Cliente>)
+            {
+                <option value="@cliente.ClienteId">@cliente.Nombre</option>
+            }
+        </select>
+        <span asp-validation-for="ClienteId" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="@Model.Fecha">Fecha de creacion</label>
-        <input type="date" asp-for="@Model.Fecha" class="form-control" />
+        <label asp-for="Fecha" class="form-label">Fecha de Creación</label>
+        <input asp-for="Fecha" type="date" class="form-control" value="@Model.Fecha.ToString("yyyy-MM-dd")" />
+        <span asp-validation-for="Fecha" class="text-danger"></span>
     </div>
-    <button type="submit">Enviar</button>
+
+    <input type="hidden" asp-for="IdPresupuesto" value="@Model.IdPresupuesto" />
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

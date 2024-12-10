@@ -40,29 +40,31 @@ namespace tl2_tp6_2024_LucianaKhalil.Controllers
         //EDITAR PRESUPUESTO---------------------------------------------
         [HttpGet]
         public IActionResult EditarPresupuesto(int idPresupuesto)
-        {  
-            var presupuestoVM = new ViewAltaPresupuesto();
-            presupuestoVM.clientes = _clienteRepositorio.getAll();
-            var presupuesto  = _presupuestoRepositorio.GetById(idPresupuesto);
-            presupuestoVM.ClienteId = presupuesto.Cliente.ClienteId;
-            presupuestoVM.Fecha = presupuesto.FechaCreacion;
+        {
+            var clientes = _clienteRepositorio.getAll();
+
+            var presupuesto = _presupuestoRepositorio.GetById(idPresupuesto);
+            var presupuestoVM = new ViewEditarPresupuesto
+            {
+                IdPresupuesto = idPresupuesto,
+                ClienteId = presupuesto.Cliente.ClienteId,
+                Fecha = presupuesto.FechaCreacion
+            };
+
+            ViewData["Clientes"] = clientes;
             return View(presupuestoVM);
         }
-
         [HttpPost]
-        public IActionResult EditarPresupuestoPost(ViewAltaPresupuesto p)
+        public IActionResult EditarPresupuestoPost(ViewEditarPresupuesto presupuestoVM)
         {
-            Console.WriteLine($"ClienteId: {p.ClienteId}, Fecha: {p.Fecha}");
-            var presupuesto = _presupuestoRepositorio.GetById(p.ClienteId); // Obtienes el presupuesto por ClienteId u otro criterio único
-            if (presupuesto != null)
-            {
-                presupuesto.Cliente.ClienteId = p.ClienteId; 
-                presupuesto.FechaCreacion = p.Fecha; 
-
-                _presupuestoRepositorio.Update(presupuesto); 
-            }
+            Console.WriteLine($"ClienteId: {presupuestoVM.ClienteId}, Fecha: {presupuestoVM.Fecha}");
+            if (!ModelState.IsValid)
+                return RedirectToAction("ListarPresupuesto");
+            var presupuesto = new Presupuesto(presupuestoVM);
+            _presupuestoRepositorio.Update(presupuesto);
             return RedirectToAction("ListarPresupuesto");
         }
+
    
         //LISTAR PRESUPUESTO--------------------------------------------------
 
