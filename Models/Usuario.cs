@@ -12,7 +12,7 @@ public class Usuario
 
 public enum Rol
 {
-    Admin,
-    Cliente,
-    noLogueado
+    Admin, //0
+    Cliente, //1
+    noLogueado  //2
 }

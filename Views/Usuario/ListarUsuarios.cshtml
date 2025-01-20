@@ -1,0 +1,17 @@
+@model List<Usuario>
+
+<nav>
+    <ul>
+        @foreach (var u in Model)
+        {
+            <li>
+                <p>Id: @u.Id</p>
+                <p>Nombre: @u.Nombre</p>
+                <p>Usuario: @u.NombreUsuario</p>
+                <p>Rol: @u.RolUsuario</p>
+                <a asp-controller="Usuarios" asp-action="EditarUsuario" asp-route-idUsuario="@u.Id" class="btn btn-primary">Editar</a>
+                <a asp-controller="Usuarios" asp-action="DeleteUsuario" asp-route-idUsuario="@u.Id" class="btn btn-danger">Eliminar</a>
+            </li>
+        }
+    </ul>
+</nav>

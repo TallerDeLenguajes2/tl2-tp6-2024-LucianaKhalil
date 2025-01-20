@@ -5,14 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IPresupuestosRepository, PresupuestoRepositorio>();//inyectar repositorios
 builder.Services.AddScoped<IClienteRepository, ClienteRepositorio>();
 builder.Services.AddScoped<IproductoRepository, ProductoRepositorio>();
-builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepositorio>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepositorio>();
 
 //inyectar la cadena de conexion
-var cadenaDeConexion = builder.Configuration.GetConnectionString("SqliteConexion")!;
-builder.Services.AddSingleton<string>(cadenaDeConexion);
+var CadenaConexion=builder.Configuration.GetConnectionString("SqliteConexion")!.ToString();//inyectar cadena de conexion
+builder.Services.AddSingleton<string>(CadenaConexion);
 
-var CadenaDeConexion=builder.Configuration.GetConnectionString("SqliteConexion")!.ToString();//inyectar cadena de conexion
-builder.Services.AddSingleton<string>(CadenaDeConexion);
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
